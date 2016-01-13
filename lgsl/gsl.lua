@@ -2704,5 +2704,7 @@ elseif jit.os == "Windows" then
   libblas = package.searchpath("libgslcblas-0",package.cpath)
 end
 
-ffi.load(libblas,true)
+if libblas then
+  ffi.load(libblas,true)
+end
 return ffi.load(libgsl)
